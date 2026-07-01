@@ -3,6 +3,7 @@ export default {
   darkMode: "class",
   content: [
     "./stories/**/*.{ts,tsx}",
+    "./.storybook/**/*.{ts,tsx,js,jsx}",
     "../../packages/ui/src/**/*.{ts,tsx}",
   ],
   theme: {
