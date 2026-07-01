@@ -12,7 +12,7 @@
     --font-heading: "TASA Orbiter", "TASA Orbiter Fallback Arial", Arial, sans-serif;
     --font-mono: "Menlo", San Francisco Mono, Courier New, Roboto Mono, monospace;
 
-    /* Razorpay Blade Font Size Tokens (Desktop) */
+    /* Font Size Tokens (Desktop) */
     --font-size-25: 10px;
     --font-size-50: 11px;
     --font-size-75: 12px;
@@ -28,7 +28,7 @@
     --font-size-1000: 64px;
     --font-size-1100: 72px;
 
-    /* Razorpay Blade Line Height Tokens (Desktop) */
+    /* Line Height Tokens (Desktop) */
     --line-height-25: 13px;
     --line-height-50: 16px;
     --line-height-75: 17px;
@@ -44,7 +44,7 @@
     --line-height-1000: 70px;
     --line-height-1100: 78px;
 
-    /* Razorpay Blade Border Radius Tokens */
+    /* Border Radius Tokens */
     --border-radius-none: 0;
     --border-radius-2xsmall: 2px;
     --border-radius-xsmall: 4px;
@@ -56,12 +56,26 @@
     --border-radius-max: 9999px;
     --border-radius-round: 50%;
 
-    /* Razorpay Blade Border Width Tokens */
+    /* Border Width Tokens */
     --border-width-none: 0;
     --border-width-thinner: 0.5px;
     --border-width-thin: 1px;
     --border-width-thick: 1.5px;
     --border-width-thicker: 2px;
+
+    /* Spacing Tokens */
+    --spacing-0: 0px;
+    --spacing-1: 2px;
+    --spacing-2: 4px;
+    --spacing-3: 8px;
+    --spacing-4: 12px;
+    --spacing-5: 16px;
+    --spacing-6: 20px;
+    --spacing-7: 24px;
+    --spacing-8: 32px;
+    --spacing-9: 40px;
+    --spacing-10: 48px;
+    --spacing-11: 56px;
 
     /* Colors and spacing base from shadcn */
     --background: oklch(1 0 0);
