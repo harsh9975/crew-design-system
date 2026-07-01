@@ -44,6 +44,25 @@
     --line-height-1000: 70px;
     --line-height-1100: 78px;
 
+    /* Razorpay Blade Border Radius Tokens */
+    --border-radius-none: 0;
+    --border-radius-2xsmall: 2px;
+    --border-radius-xsmall: 4px;
+    --border-radius-small: 8px;
+    --border-radius-medium: 12px;
+    --border-radius-large: 16px;
+    --border-radius-xlarge: 20px;
+    --border-radius-2xlarge: 24px;
+    --border-radius-max: 9999px;
+    --border-radius-round: 50%;
+
+    /* Razorpay Blade Border Width Tokens */
+    --border-width-none: 0;
+    --border-width-thinner: 0.5px;
+    --border-width-thin: 1px;
+    --border-width-thick: 1.5px;
+    --border-width-thicker: 2px;
+
     /* Colors and spacing base from shadcn */
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);
