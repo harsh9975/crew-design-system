@@ -35,7 +35,7 @@ export const Scale = () => (
         >
           <div className="w-52 shrink-0">
             <p className="font-mono text-xs text-muted-foreground">
-              theme.spacing.{token}
+              spacing.{token}
             </p>
             <p className="font-mono text-xs text-muted-foreground mt-0.5">
               {padding} · {value}
@@ -84,7 +84,12 @@ export const Padding = () => (
                 </div>
               </div>
             </div>
-            <p className="font-mono text-xs text-muted-foreground text-center">{value}</p>
+            <p className="font-mono text-xs text-muted-foreground text-center">
+              spacing.{token}
+            </p>
+            <p className="font-mono text-xs text-muted-foreground text-center">
+              {padding} · {value}
+            </p>
           </div>
         ))}
     </div>
@@ -104,8 +109,11 @@ export const Gap = () => (
             key={token}
             className="flex flex-col md:flex-row md:items-center gap-4 border-b border-border pb-4"
           >
-            <div className="w-52 shrink-0 font-mono text-xs text-muted-foreground">
-              {gap} · {value}
+            <div className="w-52 shrink-0">
+              <p className="font-mono text-xs text-muted-foreground">spacing.{token}</p>
+              <p className="font-mono text-xs text-muted-foreground mt-0.5">
+                {gap} · {value}
+              </p>
             </div>
             <div className={`flex ${gap}`}>
               <div className="w-12 h-12 bg-foreground/80 rounded-small" />

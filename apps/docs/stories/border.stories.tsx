@@ -38,7 +38,7 @@ export const Radius = () => (
             className={`w-20 h-20 bg-muted border border-thin border-border ${className}`}
           />
           <span className="font-mono text-xs text-muted-foreground text-center">
-            theme.border.radius.{token}
+            border.radius.{token}
           </span>
           <span className="font-mono text-xs text-muted-foreground">{className}</span>
         </div>
@@ -53,11 +53,11 @@ export const Width = () => (
     <div className="space-y-6">
       {widthTokens.map(({ token, className }) => (
         <div key={token} className="flex flex-col md:flex-row md:items-center border-b border-border pb-4 gap-4">
-          <div className="w-48 shrink-0 font-mono text-xs text-muted-foreground">
-            theme.border.width.{token}
+          <div className="w-48 shrink-0">
+            <p className="font-mono text-xs text-muted-foreground">border.width.{token}</p>
+            <p className="font-mono text-xs text-muted-foreground mt-0.5">{className}</p>
           </div>
           <div className={`w-32 h-16 rounded-medium bg-muted ${className} border-border`} />
-          <span className="font-mono text-xs text-muted-foreground">{className}</span>
         </div>
       ))}
     </div>
