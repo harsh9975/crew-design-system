@@ -77,6 +77,35 @@
     --spacing-10: 48px;
     --spacing-11: 56px;
 
+    /* Motion Delay Tokens */
+    --motion-delay-2xquick: 80ms;
+    --motion-delay-xquick: 160ms;
+    --motion-delay-moderate: 280ms;
+    --motion-delay-gentle: 480ms;
+    --motion-delay-xgentle: 960ms;
+    --motion-delay-long: 2000ms;
+    --motion-delay-xlong: 3000ms;
+    --motion-delay-2xlong: 5000ms;
+
+    /* Motion Duration Tokens */
+    --motion-duration-2xquick: 80ms;
+    --motion-duration-xquick: 160ms;
+    --motion-duration-quick: 200ms;
+    --motion-duration-moderate: 280ms;
+    --motion-duration-xmoderate: 360ms;
+    --motion-duration-gentle: 480ms;
+    --motion-duration-xgentle: 640ms;
+    --motion-duration-2xgentle: 960ms;
+
+    /* Motion Easing Tokens */
+    --motion-easing-linear: cubic-bezier(0, 0, 0, 0);
+    --motion-easing-entrance: cubic-bezier(0, 0, 0.2, 1);
+    --motion-easing-exit: cubic-bezier(0.17, 0, 1, 1);
+    --motion-easing-standard: cubic-bezier(0.3, 0, 0.2, 1);
+    --motion-easing-emphasized: cubic-bezier(0.5, 0, 0, 1);
+    --motion-easing-overshoot: cubic-bezier(0.5, 0, 0.3, 1.5);
+    --motion-easing-shake: cubic-bezier(1, 0.5, 0, 0.5);
+
     /* Colors and spacing base from shadcn */
     --background: oklch(1 0 0);
     --foreground: oklch(0.145 0 0);

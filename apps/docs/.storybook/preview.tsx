@@ -13,6 +13,11 @@ const preview: Preview = {
     },
   },
   decorators: [
+    (Story) => (
+      <div className="bg-background text-foreground min-h-screen p-6">
+        {Story()}
+      </div>
+    ),
     withThemeByClassName({
       themes: {
         light: "",
@@ -20,11 +25,6 @@ const preview: Preview = {
       },
       defaultTheme: "light",
     }),
-    (Story) => (
-      <div className="bg-background text-foreground min-h-screen p-6">
-        <Story />
-      </div>
-    ),
   ],
 };
 
