@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: [
     "./stories/**/*.{ts,tsx}",
     "../../packages/ui/src/**/*.{ts,tsx}",

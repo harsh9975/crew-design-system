@@ -45,6 +45,9 @@ importers:
       '@storybook/addon-links':
         specifier: ^8.2.6
         version: 8.2.6(react@18.3.1)(storybook@8.2.6)
+      '@storybook/addon-themes':
+        specifier: ^8.2.6
+        version: 8.2.6(storybook@8.2.6)
       '@storybook/react':
         specifier: ^8.2.6
         version: 8.2.6(react-dom@18.3.1)(react@18.3.1)(storybook@8.2.6)(typescript@5.5.4)
@@ -4359,6 +4362,15 @@ packages:
       storybook: ^8.2.6
     dependencies:
       '@storybook/global': 5.0.0
+      storybook: 8.2.6
+      ts-dedent: 2.2.0
+    dev: true
+
+  /@storybook/addon-themes@8.2.6(storybook@8.2.6):
+    resolution: {integrity: sha512-N1qFD9aam1zpiMltjBOMFKr2/LkaZbvNPEpkFmpTkC21Qon5WxZsj84+ajSh4dMru01wZfGxDe/XqlIfwsoglw==}
+    peerDependencies:
+      storybook: ^8.2.6
+    dependencies:
       storybook: 8.2.6
       ts-dedent: 2.2.0
     dev: true
