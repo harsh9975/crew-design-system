@@ -3,6 +3,10 @@
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   }
 }

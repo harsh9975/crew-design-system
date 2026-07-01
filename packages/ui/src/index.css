@@ -1,0 +1,154 @@
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource/tasa-orbiter";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-sans: "Inter", "Inter Fallback Arial", Arial, sans-serif;
+    --font-heading: "TASA Orbiter", "TASA Orbiter Fallback Arial", Arial, sans-serif;
+    --font-mono: "Menlo", San Francisco Mono, Courier New, Roboto Mono, monospace;
+
+    /* Razorpay Blade Font Size Tokens (Desktop) */
+    --font-size-25: 10px;
+    --font-size-50: 11px;
+    --font-size-75: 12px;
+    --font-size-100: 14px;
+    --font-size-200: 16px;
+    --font-size-300: 18px;
+    --font-size-400: 20px;
+    --font-size-500: 24px;
+    --font-size-600: 32px;
+    --font-size-700: 40px;
+    --font-size-800: 48px;
+    --font-size-900: 56px;
+    --font-size-1000: 64px;
+    --font-size-1100: 72px;
+
+    /* Razorpay Blade Line Height Tokens (Desktop) */
+    --line-height-25: 13px;
+    --line-height-50: 16px;
+    --line-height-75: 17px;
+    --line-height-100: 20px;
+    --line-height-200: 24px;
+    --line-height-300: 24px;
+    --line-height-400: 26px;
+    --line-height-500: 32px;
+    --line-height-600: 38px;
+    --line-height-700: 46px;
+    --line-height-800: 56px;
+    --line-height-900: 64px;
+    --line-height-1000: 70px;
+    --line-height-1100: 78px;
+
+    /* Colors and spacing base from shadcn */
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(1 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: oklch(0.205 0 0);
+    --primary-foreground: oklch(0.985 0 0);
+    --secondary: oklch(0.97 0 0);
+    --secondary-foreground: oklch(0.205 0 0);
+    --muted: oklch(0.97 0 0);
+    --muted-foreground: oklch(0.556 0 0);
+    --accent: oklch(0.97 0 0);
+    --accent-foreground: oklch(0.205 0 0);
+    --destructive: oklch(0.577 0.245 27.325);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(0.922 0 0);
+    --input: oklch(0.922 0 0);
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: oklch(0.205 0 0);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+  }
+
+  /* Responsive Mobile Overrides */
+  @media (max-width: 767px) {
+    :root {
+      /* Mobile Font Sizes overrides */
+      --font-size-300: 16px;
+      --font-size-400: 18px;
+      --font-size-500: 20px;
+      --font-size-600: 24px;
+      --font-size-700: 32px;
+      --font-size-800: 34px;
+      --font-size-900: 36px;
+      --font-size-1000: 38px;
+      --font-size-1100: 40px;
+
+      /* Mobile Line Heights overrides */
+      --line-height-300: 22px;
+      --line-height-400: 24px;
+      --line-height-500: 26px;
+      --line-height-600: 32px;
+      --line-height-700: 38px;
+      --line-height-800: 40px;
+      --line-height-900: 42px;
+      --line-height-1000: 46px;
+      --line-height-1100: 48px;
+    }
+  }
+
+  .dark {
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --destructive-foreground: oklch(0.985 0 0);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+
+  * {
+    border-color: var(--border);
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
