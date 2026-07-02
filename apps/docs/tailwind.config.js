@@ -1,4 +1,33 @@
 /** @type {import('tailwindcss').Config} */
+
+const alertIntents = ["information", "negative", "notice", "positive", "neutral", "primary"]
+
+const alertColors = Object.fromEntries(
+  alertIntents.map((intent) => [
+    intent,
+    {
+      subtle: {
+        bg: `var(--alert-${intent}-subtle-bg)`,
+        fg: `var(--alert-${intent}-subtle-fg)`,
+        description: `var(--alert-${intent}-subtle-description)`,
+        icon: `var(--alert-${intent}-subtle-icon)`,
+      },
+      intense: {
+        bg: `var(--alert-${intent}-intense-bg)`,
+        fg: `var(--alert-${intent}-intense-fg)`,
+      },
+    },
+  ])
+)
+
+const colorScale = (name) =>
+  Object.fromEntries(
+    [50, 100, 200, 300, 400, 500, 600, 700, 800, 900].map((step) => [
+      step,
+      `var(--color-${name}-${step})`,
+    ])
+  )
+
 export default {
   darkMode: "class",
   content: [
@@ -14,6 +43,23 @@ export default {
         ring: "var(--ring)",
         background: "var(--background)",
         foreground: "var(--foreground)",
+        brand: colorScale("brand"),
+        neutral: colorScale("neutral"),
+        positive: colorScale("positive"),
+        negative: colorScale("negative"),
+        notice: colorScale("notice"),
+        information: colorScale("information"),
+        surface: {
+          page: "var(--color-surface-page)",
+          sidebar: "var(--color-surface-sidebar)",
+          card: "var(--color-surface-card)",
+        },
+        gradient: {
+          page: {
+            from: "var(--color-gradient-page-from)",
+            to: "var(--color-gradient-page-to)",
+          },
+        },
         primary: {
           DEFAULT: "var(--primary)",
           foreground: "var(--primary-foreground)",
@@ -42,6 +88,10 @@ export default {
           DEFAULT: "var(--card)",
           foreground: "var(--card-foreground)",
         },
+        alert: alertColors,
+      },
+      maxWidth: {
+        alert: "var(--size-alert-max)",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "sans-serif"],

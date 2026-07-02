@@ -13,6 +13,11 @@
       "types": "./src/accordion.tsx",
       "import": "./dist/accordion.mjs",
       "require": "./dist/accordion.js"
+    },
+    "./alert": {
+      "types": "./src/alert.tsx",
+      "import": "./dist/alert.mjs",
+      "require": "./dist/alert.js"
     }
   },
   "scripts": {
