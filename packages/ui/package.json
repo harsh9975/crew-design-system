@@ -28,6 +28,11 @@
       "types": "./src/avatar.tsx",
       "import": "./dist/avatar.mjs",
       "require": "./dist/avatar.js"
+    },
+    "./badge": {
+      "types": "./src/badge.tsx",
+      "import": "./dist/badge.mjs",
+      "require": "./dist/badge.js"
     }
   },
   "scripts": {
