@@ -48,6 +48,11 @@
       "types": "./src/card.tsx",
       "import": "./dist/card.mjs",
       "require": "./dist/card.js"
+    },
+    "./checkbox": {
+      "types": "./src/checkbox.tsx",
+      "import": "./dist/checkbox.mjs",
+      "require": "./dist/checkbox.js"
     }
   },
   "scripts": {
