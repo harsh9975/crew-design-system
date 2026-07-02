@@ -43,6 +43,11 @@
       "types": "./src/button-group.tsx",
       "import": "./dist/button-group.mjs",
       "require": "./dist/button-group.js"
+    },
+    "./card": {
+      "types": "./src/card.tsx",
+      "import": "./dist/card.mjs",
+      "require": "./dist/card.js"
     }
   },
   "scripts": {
