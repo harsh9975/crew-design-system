@@ -18,6 +18,11 @@
       "types": "./src/alert.tsx",
       "import": "./dist/alert.mjs",
       "require": "./dist/alert.js"
+    },
+    "./toast": {
+      "types": "./src/toast.tsx",
+      "import": "./dist/toast.mjs",
+      "require": "./dist/toast.js"
     }
   },
   "scripts": {
