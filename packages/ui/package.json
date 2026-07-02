@@ -23,6 +23,11 @@
       "types": "./src/toast.tsx",
       "import": "./dist/toast.mjs",
       "require": "./dist/toast.js"
+    },
+    "./avatar": {
+      "types": "./src/avatar.tsx",
+      "import": "./dist/avatar.mjs",
+      "require": "./dist/avatar.js"
     }
   },
   "scripts": {
