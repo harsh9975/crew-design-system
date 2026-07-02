@@ -33,6 +33,11 @@
       "types": "./src/badge.tsx",
       "import": "./dist/badge.mjs",
       "require": "./dist/badge.js"
+    },
+    "./breadcrumb": {
+      "types": "./src/breadcrumb.tsx",
+      "import": "./dist/breadcrumb.mjs",
+      "require": "./dist/breadcrumb.js"
     }
   },
   "scripts": {
