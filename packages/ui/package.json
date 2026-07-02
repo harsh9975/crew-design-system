@@ -38,6 +38,11 @@
       "types": "./src/breadcrumb.tsx",
       "import": "./dist/breadcrumb.mjs",
       "require": "./dist/breadcrumb.js"
+    },
+    "./button-group": {
+      "types": "./src/button-group.tsx",
+      "import": "./dist/button-group.mjs",
+      "require": "./dist/button-group.js"
     }
   },
   "scripts": {

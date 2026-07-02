@@ -1,5 +1,6 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
+import { useButtonGroupContext } from "../button-group/button-group-context"
 
 // Types for StyledProps
 export type SpacingValue = number | string
@@ -60,10 +61,16 @@ export interface CommonEvents {
   onMouseOver?: React.MouseEventHandler<HTMLElement>
 }
 
+export type ButtonShape = "rounded" | "square" | "pill"
+export type ButtonGroupPosition = "only" | "first" | "middle" | "last"
+
 // Main Button Props
 export interface ButtonProps extends StyledProps, CommonEvents {
   variant?: "primary" | "secondary" | "tertiary"
   color?: "primary" | "negative" | "positive" | "white"
+  shape?: ButtonShape
+  groupPosition?: ButtonGroupPosition
+  style?: React.CSSProperties
   children?: React.ReactNode
   onClick?: (event: React.MouseEvent<HTMLElement>) => void
   isDisabled?: boolean
@@ -297,29 +304,80 @@ const variantClasses = {
 
 const sizeClasses = {
   xsmall: {
-    btn: "h-7 px-3 rounded-medium gap-3 text-xs font-normal",
+    btn: "h-7 px-3 gap-3 text-xs font-normal",
     icon: "size-3.5",
     spinner: "size-4",
-    iconOnly: "size-8 px-0 rounded-full",
+    iconOnly: "size-8 px-0",
+    iconOnlyGrouped: "h-7 min-w-7 px-0",
   },
   small: {
-    btn: "h-8 px-4 rounded-medium gap-2.5 text-sm font-normal",
+    btn: "h-8 px-4 gap-2.5 text-sm font-normal",
     icon: "size-3.5",
     spinner: "size-4",
-    iconOnly: "size-9 px-0 rounded-full",
+    iconOnly: "size-9 px-0",
+    iconOnlyGrouped: "h-8 min-w-8 px-0",
   },
   medium: {
-    btn: "h-9 px-6 rounded-medium gap-2.5 text-base font-medium",
+    btn: "h-9 px-6 gap-2.5 text-base font-medium",
     icon: "size-3.5",
     spinner: "size-4",
-    iconOnly: "size-12 px-0 rounded-full",
+    iconOnly: "size-12 px-0",
+    iconOnlyGrouped: "h-9 min-w-9 px-0",
   },
   large: {
-    btn: "h-10 px-8 rounded-medium gap-3 text-lg font-medium",
+    btn: "h-10 px-8 gap-3 text-lg font-medium",
     icon: "size-4.5",
     spinner: "size-4.5",
-    iconOnly: "size-13 px-0 rounded-full",
+    iconOnly: "size-13 px-0",
+    iconOnlyGrouped: "h-10 min-w-10 px-0",
   },
+}
+
+function getButtonSizeClasses(
+  size: keyof typeof sizeClasses,
+  isIconOnly: boolean,
+  isGrouped: boolean
+): string {
+  if (!isIconOnly) {
+    return sizeClasses[size].btn
+  }
+
+  return isGrouped ? sizeClasses[size].iconOnlyGrouped : sizeClasses[size].iconOnly
+}
+
+function getRadiusClasses(
+  shape: ButtonShape,
+  groupPosition: ButtonGroupPosition,
+  isIconOnly: boolean
+): string {
+  if (groupPosition !== "only") {
+    const rounded = isIconOnly ? "rounded-full" : "rounded-medium"
+
+    if (groupPosition === "first") {
+      return isIconOnly ? "rounded-l-full rounded-r-none" : "rounded-l-medium rounded-r-none"
+    }
+    if (groupPosition === "middle") {
+      return "rounded-none"
+    }
+    if (groupPosition === "last") {
+      return isIconOnly ? "rounded-r-full rounded-l-none" : "rounded-r-medium rounded-l-none"
+    }
+    return rounded
+  }
+
+  if (isIconOnly) {
+    return "rounded-full"
+  }
+
+  switch (shape) {
+    case "square":
+      return "rounded-none"
+    case "pill":
+      return "rounded-full"
+    case "rounded":
+    default:
+      return "rounded-medium"
+  }
 }
 
 const sizeGapClasses = {
@@ -339,12 +397,12 @@ const fontSizeClasses = {
 export const Button = React.forwardRef<HTMLElement, ButtonProps>(
   (
     {
-      variant = "primary",
-      color = "primary",
-      size = "medium",
+      variant: variantProp,
+      color: colorProp,
+      size: sizeProp,
       iconPosition = "left",
-      isDisabled = false,
-      isFullWidth = false,
+      isDisabled: isDisabledProp,
+      isFullWidth: isFullWidthProp,
       isLoading = false,
       type = "button",
       href,
@@ -353,6 +411,10 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       accessibilityLabel,
       icon: Icon,
       children,
+      shape = "rounded",
+      groupPosition = "only",
+      style,
+      className,
       testID,
       role = "button",
       tabIndex,
@@ -402,6 +464,19 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
     },
     ref
   ) => {
+    // Get ButtonGroup context if available
+    const buttonGroupContext = useButtonGroupContext()
+    
+    // Use context values as defaults if not provided as props
+    const variant = variantProp ?? buttonGroupContext?.variant ?? "primary"
+    const color = colorProp ?? buttonGroupContext?.color ?? "primary"
+    const size = sizeProp ?? buttonGroupContext?.size ?? "medium"
+    const isDisabled = isDisabledProp ?? buttonGroupContext?.isDisabled ?? false
+    const isFullWidth = isFullWidthProp ?? buttonGroupContext?.isFullWidth ?? false
+
+    const isIconOnly = Icon !== undefined && !children
+    const isGrouped = groupPosition !== "only"
+    
     // Generate stable unique styled-prop className
     const uniqueId = React.useId().replace(/:/g, "")
     const styledClassName = `styled-btn-${uniqueId}`
@@ -555,8 +630,6 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
       onTouchStart,
     }
 
-    const isIconOnly = Boolean(Icon && !children)
-
     // Base button classes with explicit font-sans to override user-agent font family
     const buttonBaseClasses =
       "group/button relative inline-flex shrink-0 items-center justify-center font-sans select-none outline-none focus-visible:ring-2 focus-visible:ring-[var(--button-focus-ring)] focus-visible:ring-offset-2 ring-offset-background"
@@ -565,10 +638,14 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
     const combinedClassName = cn(
       buttonBaseClasses,
       variantClasses[variant][color],
-      isIconOnly ? sizeClasses[size].iconOnly : sizeClasses[size].btn,
+      getButtonSizeClasses(size, isIconOnly, isGrouped),
+      getRadiusClasses(shape, groupPosition, isIconOnly),
+      isGrouped && (groupPosition === "middle" || groupPosition === "last") && "-ml-px",
+      isGrouped && "relative hover:z-10 focus-visible:z-10 hover:!translate-y-0 active:!translate-y-0",
       isFullWidth && "w-full flex",
       (isDisabled || isLoading) && "pointer-events-none opacity-50",
-      hasStyledProps && styledClassName
+      hasStyledProps && styledClassName,
+      className
     )
 
     const ariaLabel = accessibilityLabel || (isIconOnly ? "button" : undefined)
@@ -576,6 +653,7 @@ export const Button = React.forwardRef<HTMLElement, ButtonProps>(
     const commonProps = {
       "aria-label": ariaLabel,
       className: combinedClassName,
+      style,
       "data-testid": testID,
       role,
       tabIndex: isDisabled || isLoading ? -1 : tabIndex,
