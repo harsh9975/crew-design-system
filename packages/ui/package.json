@@ -8,6 +8,11 @@
       "types": "./src/button.tsx",
       "import": "./dist/button.mjs",
       "require": "./dist/button.js"
+    },
+    "./accordion": {
+      "types": "./src/accordion.tsx",
+      "import": "./dist/accordion.mjs",
+      "require": "./dist/accordion.js"
     }
   },
   "scripts": {
