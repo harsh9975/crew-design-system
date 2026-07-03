@@ -58,6 +58,11 @@
       "types": "./src/drawer.tsx",
       "import": "./dist/drawer.mjs",
       "require": "./dist/drawer.js"
+    },
+    "./base-filter-chip": {
+      "types": "./src/base-filter-chip.tsx",
+      "import": "./dist/base-filter-chip.mjs",
+      "require": "./dist/base-filter-chip.js"
     }
   },
   "scripts": {
