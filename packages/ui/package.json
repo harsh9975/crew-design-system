@@ -53,6 +53,11 @@
       "types": "./src/checkbox.tsx",
       "import": "./dist/checkbox.mjs",
       "require": "./dist/checkbox.js"
+    },
+    "./drawer": {
+      "types": "./src/drawer.tsx",
+      "import": "./dist/drawer.mjs",
+      "require": "./dist/drawer.js"
     }
   },
   "scripts": {

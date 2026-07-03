@@ -190,12 +190,72 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "drawer-in-right": {
+          from: { transform: "translateX(100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "drawer-out-right": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(100%)" },
+        },
+        "drawer-in-left": {
+          from: { transform: "translateX(-100%)" },
+          to: { transform: "translateX(0)" },
+        },
+        "drawer-out-left": {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-100%)" },
+        },
+        "drawer-in-top": {
+          from: { transform: "translateY(-100%)" },
+          to: { transform: "translateY(0)" },
+        },
+        "drawer-out-top": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(-100%)" },
+        },
+        "drawer-in-bottom": {
+          from: { transform: "translateY(100%)" },
+          to: { transform: "translateY(0)" },
+        },
+        "drawer-out-bottom": {
+          from: { transform: "translateY(0)" },
+          to: { transform: "translateY(100%)" },
+        },
+        "drawer-overlay-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "drawer-overlay-out": {
+          from: { opacity: "1" },
+          to: { opacity: "0" },
+        },
       },
       animation: {
         "accordion-down":
           "accordion-down var(--motion-duration-moderate) var(--motion-easing-entrance)",
         "accordion-up":
           "accordion-up var(--motion-duration-moderate) var(--motion-easing-entrance)",
+        "drawer-in-right":
+          "drawer-in-right var(--motion-duration-moderate) var(--motion-easing-entrance) forwards",
+        "drawer-out-right":
+          "drawer-out-right var(--motion-duration-moderate) var(--motion-easing-exit) forwards",
+        "drawer-in-left":
+          "drawer-in-left var(--motion-duration-moderate) var(--motion-easing-entrance) forwards",
+        "drawer-out-left":
+          "drawer-out-left var(--motion-duration-moderate) var(--motion-easing-exit) forwards",
+        "drawer-in-top":
+          "drawer-in-top var(--motion-duration-moderate) var(--motion-easing-entrance) forwards",
+        "drawer-out-top":
+          "drawer-out-top var(--motion-duration-moderate) var(--motion-easing-exit) forwards",
+        "drawer-in-bottom":
+          "drawer-in-bottom var(--motion-duration-moderate) var(--motion-easing-entrance) forwards",
+        "drawer-out-bottom":
+          "drawer-out-bottom var(--motion-duration-moderate) var(--motion-easing-exit) forwards",
+        "drawer-overlay-in":
+          "drawer-overlay-in var(--motion-duration-moderate) var(--motion-easing-entrance) forwards",
+        "drawer-overlay-out":
+          "drawer-overlay-out var(--motion-duration-moderate) var(--motion-easing-exit) forwards",
       },
     },
   },
