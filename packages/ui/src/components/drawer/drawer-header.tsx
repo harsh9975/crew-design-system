@@ -67,7 +67,7 @@ export const DrawerHeader = React.forwardRef<HTMLDivElement, DrawerHeaderProps>(
                 <DialogTitle className="sr-only">Drawer</DialogTitle>
               )}
               {subtitle ? (
-                <DialogDescription className="mt-1 text-100 leading-100 text-muted-foreground">
+                <DialogDescription className="text-[12px] leading-300 text-muted-foreground">
                   {subtitle}
                 </DialogDescription>
               ) : null}
